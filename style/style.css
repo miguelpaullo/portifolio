@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@600&display=swap'); /* importamos a fonte pelo google fonts*/
+
+:root{
+    /* usaremos a pseudo classe root para declarar variáveis que poderão ser usadas no códico css globalmente */
+    --cor-primaria: black;
+    --cor-segundaria: white;
+    --cor-terciaria: #22D4FD;
+    --cor-hover: #272727;
+
+    --fonte-primaria: "Krona One", sans-serif;
+    --fonte-secundaria: "Montserrat", sans-serif;
+}
+
+/* Usamos "*" para selecionar a página como um todo */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* para nenhum elemento filho ser maior do que o elemento pai*/
+    box-sizing: border-box;
+    /* height define que estamos utilizando toda a tela disponivel do dispositivo (vh seria a meta informação viewport) criando uma pagina da web sem scroll */
+    /* height: 100vh; */
+    background-color: var(--cor-primaria);
+    color: var(--cor-segundaria);
+}
+
+.cabecalho{
+    padding:2% 0% 0% 6%; 
+    /* podemos inserir 4 valores no paddin, sendo o 1º margem superior, 2º margem a direita, 3º margem inferior e 4º margem a esquerda */
+}
+
+.cabecalho__menu{
+    display: flex;
+    gap: 80px;
+}
+
+.cabecalho__menu__links{
+    font-family: var(--fonte-secundaria);
+    font-size: 1.25rem; /* rem é uma unidade de medida para padronizar o tamanho das fontes em qualquer dispositivo => 1rem = 16px */
+    font-weight: 600;
+    color: var(--cor-terciaria);
+    text-decoration: none;
+}
+
+.titulo-destaque {
+    color: var(--cor-terciaria);
+}
+
+.apresentacao { 
+    padding: 6%;
+    display: flex; /*colocando todas as tag filhas alinhadas na mesma linha (FLEXBOX)*/
+    align-items: center; /*alinhamento a partir do centro do maior elemento, nesse caso a imagem*/
+    justify-content: space-between;
+    gap: 82px;
+}
+
+.apresentacao__conteudo{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 1% 0 0 0; /*TESTE TESTE TESTE TESTE TESTE*/
+}
+
+.apresentacao__conteudo__titulo{
+    font-size: 1.56rem;
+    font-family: var(--fonte-primaria);
+}
+
+.apresentacao__conteudo__texto{
+    font-size: 1.125rem;
+    font-family: var(--fonte-secundaria);
+}
+
+.apresentacao__conteudo__links{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+
+}
+
+.apresentacao__conteudo__links__link{
+    /* background-color: aqua; atalho para comentar ctrl + k + c*/ 
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    border: 2px solid var(--cor-terciaria);
+    width: 50%;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 13px 0;
+    text-decoration: none;
+    color:var(--cor-segundaria);
+    font-family: var(--fonte-secundaria);
+}
+
+.apresentacao__conteudo__links__titulo{
+    font-size: 1.125rem;
+    font-family: var(--fonte-primaria);
+    font-weight: 400;
+}
+
+.apresentacao__conteudo__links__link:hover{
+    background-color: var(--cor-hover);
+    /* isso é usado para quando o mouse passar por cima do link criar uma responsividade */
+}
+
+.apresentacao__imagem{
+    width: 50%;
+}
+
+.apresentacao__imagem__about{
+    width: 50%;
+}
+
+.rodape{
+    background-color: var(--cor-terciaria);
+    color: var(--cor-primaria);
+    padding: 25px;
+    text-align: center;
+    font-family: var(--fonte-secundaria);
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+@media(max-width: 1000px){ /*@media serve para mudar a responsidade do site a depender da largura do dispositivo, analisamos isso inspecionando a nossa pagina da web*/
+
+    .cabecalho{
+        padding: 10%;
+    }
+
+    .cabecalho__menu{
+        justify-content: center;
+    }
+
+    .apresentacao{
+        /* chamamos a classe apresentação pq ela está no main e o que queremos mudar e justamente o conteudo do main*/
+        flex-direction: column-reverse;
+        padding: 5%;
+    }
+
+    .apresentacao__conteudo{
+        width: auto; /*utilizaremos o auto para que o elemento filho utilize todo o padding do elemento pai*/
+    }
+}
